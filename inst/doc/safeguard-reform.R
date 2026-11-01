@@ -12,7 +12,7 @@ knitr::opts_chunk$set(collapse = TRUE, comment = "#>", eval = FALSE)
 # unique(fac_23_24$regime)
 
 ## -----------------------------------------------------------------------------
-# traj <- cer_safeguard_baseline_trajectory("Aluminium smelting",
+# traj <- cer_safeguard_baseline_trajectory("Aluminium",
 #                                             from_year = 2023,
 #                                             to_year = 2030)
 # traj
@@ -37,10 +37,10 @@ knitr::opts_chunk$set(collapse = TRUE, comment = "#>", eval = FALSE)
 # sum(fac_23_24[, grep("smc", names(fac_23_24))], na.rm = TRUE)
 
 ## -----------------------------------------------------------------------------
-# total_23_24 <- sum(fac_23_24$covered_emissions, na.rm = TRUE)
+# cer_qcmr_reference(measure = "safeguard_accu_surrenders")
 # cer_reconcile(
-#   value   = total_23_24 / 1e6,  # convert t to Mt
-#   quarter = "2023-24",
-#   measure = "safeguard_covered_emissions_mt"
+#   value   = 623613,
+#   quarter = "2024-Q4",
+#   measure = "safeguard_accu_surrenders"
 # )
 

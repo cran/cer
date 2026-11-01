@@ -386,10 +386,8 @@ sharper on HIR specifically. The live debate is continuing.</p>
 <h2>Aggregating ACCUs by integrity tier</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>projects <span class="ot">&lt;-</span> <span class="fu">cer_accu_projects</span>(<span class="at">status =</span> <span class="st">&quot;all&quot;</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>by_tier <span class="ot">&lt;-</span> <span class="fu">cer_accu_aggregate</span>(projects,</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>                               <span class="at">value_col =</span> <span class="st">&quot;accus_issued&quot;</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>                               <span class="at">warn_contested_pct =</span> <span class="fl">0.05</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>by_tier</span></code></pre></div>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>by_tier <span class="ot">&lt;-</span> <span class="fu">cer_accu_aggregate</span>(projects, <span class="at">warn_contested_pct =</span> <span class="fl">0.05</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>by_tier</span></code></pre></div>
 <p>The function emits a warning when contested-integrity methods account
 for more than 5 per cent of the total : a signal that a single headline
 figure is not appropriate.</p>

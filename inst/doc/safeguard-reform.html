@@ -365,13 +365,14 @@ onward.</p>
 </div>
 <div id="declining-baseline-trajectory" class="section level2">
 <h2>Declining baseline trajectory</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>traj <span class="ot">&lt;-</span> <span class="fu">cer_safeguard_baseline_trajectory</span>(<span class="st">&quot;Aluminium smelting&quot;</span>,</span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>traj <span class="ot">&lt;-</span> <span class="fu">cer_safeguard_baseline_trajectory</span>(<span class="st">&quot;Aluminium&quot;</span>,</span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>                                            <span class="at">from_year =</span> <span class="dv">2023</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>                                            <span class="at">to_year =</span> <span class="dv">2030</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>traj</span></code></pre></div>
-<p>In 2029-30, the aluminium smelting default baseline is ~27 per cent
-below its 2023-24 value (<code>(1 - 0.049)^6 ~= 0.738</code>). This is
-the key number for emissions-intensity reform analysis.</p>
+<p>In 2029-30 the default baseline for primary aluminium is 0.657 times
+the Schedule 1 default intensity, 31 per cent below its 2023-24 value
+(0.657 / 0.951). This is the key number for emissions-intensity reform
+analysis.</p>
 </div>
 <div id="teba-facilities" class="section level2">
 <h2>TEBA facilities</h2>
@@ -403,11 +404,15 @@ baseline.</p>
 </div>
 <div id="reconciling-against-the-qcmr" class="section level2">
 <h2>Reconciling against the QCMR</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>total_23_24 <span class="ot">&lt;-</span> <span class="fu">sum</span>(fac_23_24<span class="sc">$</span>covered_emissions, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<p>The QCMR does not publish annual covered emissions, so there is no
+bundled reference for the facility totals. It does publish Safeguard
+surrenders each quarter, which can be checked against a register
+extract:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">cer_qcmr_reference</span>(<span class="at">measure =</span> <span class="st">&quot;safeguard_accu_surrenders&quot;</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">cer_reconcile</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  <span class="at">value   =</span> total_23_24 <span class="sc">/</span> <span class="fl">1e6</span>,  <span class="co"># convert t to Mt</span></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  <span class="at">quarter =</span> <span class="st">&quot;2023-24&quot;</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  <span class="at">measure =</span> <span class="st">&quot;safeguard_covered_emissions_mt&quot;</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  <span class="at">value   =</span> <span class="dv">623613</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  <span class="at">quarter =</span> <span class="st">&quot;2024-Q4&quot;</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  <span class="at">measure =</span> <span class="st">&quot;safeguard_accu_surrenders&quot;</span></span>
 <span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>)</span></code></pre></div>
 <p>If the reconciliation gap exceeds 2 per cent, a CER restatement has
 likely occurred between your snapshot date and the bundled QCMR

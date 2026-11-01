@@ -24,10 +24,13 @@ knitr::opts_chunk$set(collapse = TRUE, comment = "#>", eval = FALSE)
 # shortfall_aud
 
 ## -----------------------------------------------------------------------------
-# # Cumulative LGC issuances
+# # LGCs validated in 2024-Q4, from the QCMR data workbook
+# cer_qcmr_reference(quarter = "2024-Q4", measure = "lgc_validations")
+# 
+# # Reconcile a total from the LGC register against it
 # cer_reconcile(
-#   value    = sum(stations$capacity_mw, na.rm = TRUE) * 1e3,  # rough
+#   value    = 14010587,
 #   quarter  = "2024-Q4",
-#   measure  = "lgc_cumulative_issuances_millions"
+#   measure  = "lgc_validations"
 # )
 

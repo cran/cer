@@ -388,15 +388,17 @@ shortfall is 100,000 LGCs, and the shortfall charge is AUD 6.5m
 </div>
 <div id="reconciling-against-qcmr-headline" class="section level2">
 <h2>Reconciling against QCMR headline</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># Cumulative LGC issuances</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">cer_reconcile</span>(</span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  <span class="at">value    =</span> <span class="fu">sum</span>(stations<span class="sc">$</span>capacity_mw, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">*</span> <span class="fl">1e3</span>,  <span class="co"># rough</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  <span class="at">quarter  =</span> <span class="st">&quot;2024-Q4&quot;</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>  <span class="at">measure  =</span> <span class="st">&quot;lgc_cumulative_issuances_millions&quot;</span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>)</span></code></pre></div>
-<p>The rough check using capacity is a weak proxy; real reconciliation
-would use the published LGC issuance register. This vignette is
-illustrative of the reconciliation pattern.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># LGCs validated in 2024-Q4, from the QCMR data workbook</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">cer_qcmr_reference</span>(<span class="at">quarter =</span> <span class="st">&quot;2024-Q4&quot;</span>, <span class="at">measure =</span> <span class="st">&quot;lgc_validations&quot;</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co"># Reconcile a total from the LGC register against it</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="fu">cer_reconcile</span>(</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>  <span class="at">value    =</span> <span class="dv">14010587</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>  <span class="at">quarter  =</span> <span class="st">&quot;2024-Q4&quot;</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>  <span class="at">measure  =</span> <span class="st">&quot;lgc_validations&quot;</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>)</span></code></pre></div>
+<p>The value passed here would come from the REC Registry’s LGC
+validation records for the quarter.</p>
 </div>
 
 

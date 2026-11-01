@@ -23,7 +23,7 @@ A \code{cer_tbl} with one row per project.
 }
 \description{
 Derived from the ACCU Scheme project register: returns one row
-per project with \code{accus_issued}, project metadata, and total
+per project with \code{accus_total_units_issued}, project metadata, and total
 issuance net of relinquishments. For method- or period-level
 issuance tracking, query \code{\link[=cer_accu_projects]{cer_accu_projects()}} directly.
 }
@@ -36,13 +36,13 @@ options(op)
 }
 }
 \seealso{
-Other accu: 
-\code{\link{cer_accu_aggregate}()},
-\code{\link{cer_accu_contracts}()},
-\code{\link{cer_accu_methods}()},
-\code{\link{cer_accu_projects}()},
-\code{\link{cer_accu_relinquishments}()},
-\code{\link{cer_method_determination}()},
-\code{\link{cer_method_integrity}()}
+Other accu:
+\code{\link[=cer_accu_aggregate]{cer_accu_aggregate()}},
+\code{\link[=cer_accu_contracts]{cer_accu_contracts()}},
+\code{\link[=cer_accu_methods]{cer_accu_methods()}},
+\code{\link[=cer_accu_projects]{cer_accu_projects()}},
+\code{\link[=cer_accu_relinquishments]{cer_accu_relinquishments()}},
+\code{\link[=cer_method_determination]{cer_method_determination()}},
+\code{\link[=cer_method_integrity]{cer_method_integrity()}}
 }
 \concept{accu}
